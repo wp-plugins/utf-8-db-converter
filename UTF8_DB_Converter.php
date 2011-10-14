@@ -3,13 +3,13 @@
 Plugin Name: Convert WP Database to UTF-8
 Plugin URI: http://yihui.name/en/2009/05/convert-mysql-database-to-utf-8-in-wordpress/
 Description: Converts the WordPress database (both tables and columns) to UTF-8 character set.
-Version: 1.0.1
+Version: 1.0.2
 Author: Yihui Xie
 Author URI: http://yihui.name/
 */
 
 /*
-	Copyright 2009  Yihui Xie  (email: xie@yihui.name)
+	Copyright 2009 - 2011  Yihui Xie  (email: xie@yihui.name)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -129,7 +129,7 @@ function UTF8_DB_Converter_DoIt() {
           {
              if ( strpos($field_type, $type) !== false )
              {
-                $sql4 = "ALTER TABLE $table CHANGE `$field_name` `$field_name` $field_type CHARACTER SET utf8 COLLATE utf8_bin";
+                $sql4 = "ALTER TABLE $table CHANGE `$field_name` `$field_name` $field_type CHARACTER SET utf8 COLLATE utf8_general_ci";
                 if ( !($result4 = mysql_query($sql4, $connection)) )
                 {
                    print '<span style="color: red;">SQL Error: <br>' . mysql_error() . "</span>\n";

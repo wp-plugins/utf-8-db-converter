@@ -28,12 +28,16 @@ This plugin can convert your WordPress database (both tables and columns) to UTF
 = What's happening "behind the scene"? =
 
 1. Change tables: `ALTER TABLE $table DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci`
-2. Change columns: `ALTER TABLE $table CHANGE $field_name $field_name $field_type CHARACTER SET utf8 COLLATE utf8_bin`
+2. Change columns: `ALTER TABLE $table CHANGE $field_name $field_name $field_type CHARACTER SET utf8 COLLATE utf8_general_ci`
 
 = What about the WP version? =
 
 As you've seen, only MySQL and PHP are required. Roughly speaking, it has nothing to do with WordPress, so you can use almost any version of WordPress.
 
 == Changelog == 
+
+2011-10-14 version 1.0.2
+
+* use COLLATE utf8_general_ci instead of utf8_bin
 
 2009-06-20 version 1.0.0 released
